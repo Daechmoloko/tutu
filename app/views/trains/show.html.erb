@@ -1,0 +1,94 @@
+<h1><%=@train.number%></h1>
+<p>
+  <strong>Следует по маршруту:</strong>
+  <% if @train.route.present? %>
+     <%= @train.route.name %>
+  <% else %>
+    Маршрут не указан!
+  <% end %>
+</p>
+<p>
+  <strong>Поезд находится на станции:</strong>
+  <% if @train.railway_station.present? %>
+     <%= @train.railway_station.title %>
+  <% else %>
+    Не известно!
+  <% end %>
+</p>
+<p>
+  <strong>Поезд имеет следующие кол-во вагонов:</strong>
+  <div>
+    <strong>Плацкартные:</strong>
+    <% @size = 0 %>
+    <% @train.wagons.each do |t| %>
+      <% if t.wagon_class_id == "1" %>
+        <% @size += 1 %>
+      <% end %>
+    <% end %>
+    <%= @size %>
+    <div>
+      <p>
+        Кол-во мест на верхних полках:
+        <% @summ = 0 %>
+        <% @train.wagons.each do |thing| %>
+          <% if thing.wagon_class_id == "1" %>
+            <% @summ += thing.top_place.to_i %>
+          <% end %>
+        <% end %>
+        <%= @summ %>
+      </p>
+    </div>
+    <div>
+      <p>
+        Кол-во мест на нижних полках:
+         <% @summ = 0 %>
+        <% @train.wagons.each do |thing| %>
+          <% if thing.wagon_class_id == "1" %>
+            <% @summ += thing.under_place.to_i %>
+          <% end %>
+        <% end %>
+        <%= @summ %>
+      </p>
+    </div>
+  </div>
+  <div>
+    <strong>Купешные:</strong>
+    <% @size = 0 %>
+    <% @train.wagons.each do |t| %>
+      <% if t.wagon_class_id == "2" %>
+        <% @size += 1 %>
+      <% end %>
+    <% end %>
+    <%= @size %>
+    <div>
+      <p>
+        Кол-во мест на верхних полках:
+        <% @summ = 0 %>
+        <% @train.wagons.each do |thing| %>
+          <% if thing.wagon_class_id == "2" %>
+            <% @summ += thing.top_place.to_i %>
+          <% end %>
+        <% end %> 
+        <%= @summ %>
+      </p>
+    </div>
+    <div>
+      <p>
+        Кол-во мест на нижних полках: 
+        <% @summ = 0 %>
+        <% @train.wagons.each do |thing| %>
+          <% if thing.wagon_class_id == "2" %>
+            <% @summ += thing.under_place.to_i %>
+          <% end %>
+        <% end %>
+        <%= @summ %>
+      </p>
+    </div>
+  </div>
+</p>
+<br>
+<%= link_to 'Добавить вагон', new_train_wagon_path(@train,@wagon) %>
+<br>
+<%= link_to 'Редактировать', edit_train_path(@train)%>
+<br>
+<%= link_to 'Назад', trains_path %>

@@ -1,0 +1,7 @@
+<div>
+    <%= railway_station.title %>
+    <%= link_to 'Посмотреть', railway_station_path(railway_station) %>
+    <%= link_to 'Редактировать', edit_railway_station_path(railway_station) %>
+    <%= link_to 'Удалить', railway_station_path(railway_station), 
+      data: { method: :delete, confirm: 'Are you sure?' } %>
+</div>

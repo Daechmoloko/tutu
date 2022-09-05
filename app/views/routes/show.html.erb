@@ -1,0 +1,11 @@
+<h1><%=@route.name%></h1>
+<p>
+  <strong>Список поездов на маршруте:</strong>
+    <% @route.trains.each_with_index do |train, index| %>
+    <p><%= "#{index+1}: #{train.number}" %></p>
+    <% end %>
+</p>
+<br>
+<%= link_to 'Редактировать', edit_route_path(@route)%>
+<br>
+<%= link_to 'Назад', routes_path %>

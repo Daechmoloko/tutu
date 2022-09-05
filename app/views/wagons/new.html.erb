@@ -1,0 +1,24 @@
+<h1>Добавления вагона в поезд №<%= @train.number %></h1>
+<%= form_with model: [@train, @wagon] do |f| %>
+    <div>
+      <%= f.label :number, "Номер вагона" %>
+      <%= f.text_field :number %>
+    </div>
+    <div>
+      <%= f.label :wagon_class, "Тип вагона" %>
+      <%= f.collection_select :wagon_class_id, WagonClass.all, :id, :title %>
+    </div>
+    <div>
+      <%= f.label :top_place, "Кол-во вверхних мест" %>
+      <%= f.text_field :top_place %>
+    </div>
+    <div>
+      <%= f.label :under_place, "Кол-во нижних мест" %>
+      <%= f.text_field :under_place %>
+    </div>
+    <div>
+      <%= f.submit "Добавить" %>
+    </div>    
+<% end %>
+  
+  

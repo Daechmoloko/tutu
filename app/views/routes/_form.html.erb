@@ -1,0 +1,8 @@
+<%= form_with model: @route do |f| %>
+    <%= f.label :name, 'Номер маршрута:'%>
+    <%= f.text_field :name%>
+    <br>
+    <%= f.submit "#{@route.new_record? ? 'Создать' : 'Изменить'}"%>
+    <br>
+    <%= link_to "Назад", routes_path %>
+<% end %>

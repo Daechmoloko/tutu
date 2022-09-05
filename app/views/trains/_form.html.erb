@@ -1,0 +1,21 @@
+<%= form_with model: @train do |f| %>
+    <div class="field">
+      <%= f.label :number, 'Наименование поезда:'%>
+      <%= f.text_field :number%>
+    </div>
+
+    <div>
+      <%= f.label :route, "Выберете маршрут:" %>
+      <%= f.collection_select :route_id, Route.all, :id, :name %>
+    </div>
+
+    <div>
+      <%= f.label :railway_station, "Текущая станция:" %>
+      <%= f.collection_select :railway_station_id, RailwayStation.all, :id, :title %>
+    </div>
+    
+    <div class="button">
+      <%= f.submit "#{@train.new_record? ? 'Создать' : 'Изменить'}"%>
+    <br>
+    <%= link_to "Назад", trains_path %>
+<% end %>

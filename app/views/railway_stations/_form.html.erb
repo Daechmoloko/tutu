@@ -1,0 +1,8 @@
+<%= form_with model: @railway_station do |f| %>
+    <%= f.label :title, 'Наименование станции:'%>
+    <%= f.text_field :title%>
+    <br>
+    <%= f.submit "#{@railway_station.new_record? ? 'Создать' : 'Изменить' }"%>
+    <br>
+    <%= link_to "Назад", railway_stations_path %>
+<% end %>

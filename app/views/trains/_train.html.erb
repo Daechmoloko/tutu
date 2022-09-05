@@ -1,0 +1,7 @@
+<div>
+    <%= train.number %>
+    <%= link_to 'Посмотреть', train_path(train) %>
+    <%= link_to 'Редактировать', edit_train_path(train) %>
+    <%= link_to 'Удалить', train_path(train), 
+      data: { method: :delete, confirm: 'Are you sure?' } %>
+</div>
