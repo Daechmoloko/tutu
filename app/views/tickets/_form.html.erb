@@ -1,0 +1,14 @@
+<%= form_with model: @ticket do |f| %>
+    <%= f.label :user_name, 'ФИО:'%>
+    <%= f.text_field :user_name%>
+    <br>
+    <%= f.label :starting_station, 'Начальная станция:'%>
+    <%= f.text_field :starting_station%>
+    <br>
+    <%= f.label :ending_station, 'Конечная станция:'%>
+    <%= f.text_field :ending_station%>
+    <br>
+    <%= f.submit "#{@ticket.new_record? ? 'Создать' : 'Изменить'}"%>
+    <br>
+    <%= link_to "Назад", tickets_path %>
+<% end %>

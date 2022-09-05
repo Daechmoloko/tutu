@@ -1,0 +1,10 @@
+<div>
+    ФИО: <%= ticket.user_name %><br>
+    Начальная станция: <%= ticket.starting_station %><br>
+    Конечная станция: <%= ticket.ending_station %><br>
+    <%= link_to 'Посмотреть', ticket_path(ticket) %><br>
+    <%= link_to 'Редактировать', edit_ticket_path(ticket) %><br>
+    <%= link_to 'Удалить', ticket_path(ticket), 
+      data: { method: :delete, confirm: 'Are you sure?' } %><br>
+    ____________________________
+</div>
