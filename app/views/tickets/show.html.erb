@@ -1,0 +1,9 @@
+<h1><%= @ticket.id %></h1>
+
+<div>
+  <p>ФИО: <%= @ticket.user_name %></p>
+  <p>Начальная станция: <%= @ticket.starting_station %></p>
+  <p>Конечная станция: <%= @ticket.ending_station %></p>
+  <p><%= link_to "Редактировать", edit_ticket_path(@ticket) %></p>
+  <p><%= link_to "Назад", tickets_path %></p>
+</div>
